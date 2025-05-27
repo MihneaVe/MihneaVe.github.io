@@ -262,22 +262,26 @@ footer {
   margin-top: 25px;
   position: relative;
   padding-left: 20px;
+  padding-top: 30px;  /* Increased top padding */
+  padding-bottom: 15px;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 10px;
-  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
   width: 3px;
   background: linear-gradient(to bottom, var(--green-accent), var(--green-primary), var(--green-light));
   border-radius: 3px;
+  z-index: -1;  /* Put the line behind content */
 }
 
 .experience-item {
   position: relative;
-  padding: 0 0 25px 25px;
+  padding: 25px 0 40px 0;  /* Added top padding for better spacing */
 }
 
 .experience-item:last-child {
@@ -291,15 +295,23 @@ footer {
   height: 15px;
   border-radius: 50%;
   background-color: var(--green-primary);
-  left: -6px;
-  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 2;  /* Make dots appear above the line */
 }
 
 .experience-header {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 10px;
+  margin-top: 25px;  /* Increased margin from dots */
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--dark-secondary);  /* Add background to prevent line show-through */
+  padding: 5px 15px;
+  border-radius: 8px;
+  width: 80%;  /* Limit width for better centering */
 }
 
 .experience-icon {
@@ -312,6 +324,10 @@ footer {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  margin-bottom: 10px;
+  margin-right: 0;
+  background-color: var(--dark-secondary);  /* Ensure background covers the line */
+  z-index: 3;
 }
 
 .experience-item h3 {
@@ -329,7 +345,12 @@ footer {
 .experience-item p {
   margin-top: 8px;
   line-height: 1.6;
-  padding-left: 55px;
+  padding: 0;
+  margin-top: 15px;
+  max-width: 80%;  /* Narrower content to avoid collision */
+  background-color: var(--dark-secondary);  /* Background to hide line */
+  padding: 8px;
+  border-radius: 8px;
 }
 
 /* Skills Section Styles */
@@ -911,22 +932,21 @@ nav a.active {
   
   .experience-item {
     padding-bottom: 35px;
+    padding-top: 30px;  /* More spacing between items */
   }
   
-  .experience-icon {
-    width: 35px;
-    height: 35px;
-  }
-  
-  /* Ensure no text overflows or collides with timeline elements */
-  .experience-header div {
-    width: 100%;
-    text-align: center;
+  .experience-header {
+    width: 90%;  /* Wider on very small screens */
   }
   
   .experience-item p {
-    width: 100%;
-    text-align: center;
-    padding: 0 5px;
+    max-width: 90%;
+  }
+  
+  /* Use a subtle shadow to make content stand out from the line */
+  .experience-header,
+  .experience-item p,
+  .experience-icon {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
 }

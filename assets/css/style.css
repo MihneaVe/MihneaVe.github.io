@@ -525,3 +525,129 @@ footer {
     transform: translateY(-3px);
   }
 }
+
+/* Mobile improvements for better centering */
+@media (max-width: 768px) {
+  /* Existing responsive styles remain */
+  
+  /* Improved text alignment */
+  .bio-intro, .bio-specialty, .bio-background, 
+  .section-title, .hero-content {
+    text-align: center;
+  }
+  
+  /* Center hero content better */
+  .hero {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Ensure skills are centered */
+  .skills-container {
+    justify-content: center;
+  }
+  
+  /* Center profile image */
+  .profile-container {
+    margin: 0 auto 25px;
+  }
+  
+  /* Better spacing for sections */
+  section {
+    padding: 25px;
+    text-align: center;
+  }
+  
+  /* Fix timeline alignment on mobile */
+  .timeline {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+  }
+
+  /* Improve experience item alignment */
+  .experience-header {
+    justify-content: center;
+  }
+  
+  /* Center footer items better */
+  footer {
+    padding: 20px 15px;
+    text-align: center;
+  }
+
+  /* Make experience icons align better */
+  .experience-icon {
+    margin-right: 0;
+  }
+  
+  /* Center buttons */
+  .btn {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  
+  /* Keep the timeline vertical line centered */
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .experience-item::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .experience-item {
+    padding-left: 0;
+  }
+}
+
+/* Extra small device improvements */
+@media (max-width: 480px) {
+  /* Existing small device styles remain */
+  
+  /* Adjust section padding for better mobile appearance */
+  section {
+    padding: 20px 15px;
+  }
+  
+  /* Make skill groups more centered */
+  .skill-groups {
+    align-items: center;
+  }
+  
+  /* Better spacing for skill levels */
+  .skill-list li {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .skill-level {
+    width: 80%;
+    margin-top: 5px;
+  }
+  
+  /* Center skill names */
+  .skill-name {
+    text-align: center;
+    padding-left: 0;
+  }
+  
+  .skill-name::before {
+    display: none;
+  }
+  
+  /* Improve experience item text alignment */
+  .experience-item p {
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  /* Adjust margins for stacked elements */
+  .hero-content, .bio-content {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}

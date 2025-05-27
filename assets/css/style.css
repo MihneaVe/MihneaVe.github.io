@@ -465,151 +465,53 @@ footer {
   transform: translateY(-3px);
 }
 
-/* Make sure this is at the end of your CSS file to handle responsive design */
 /* Base mobile optimizations */
 @media (max-width: 768px) {
-  /* Existing responsive styles remain */
-  
-  /* Enhanced header for mobile */
   header {
-    padding: 15px;
+    padding: 10px;
     position: relative;
   }
   
   header h1 {
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
   }
   
   nav ul {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+    margin-top: 8px;
   }
   
   nav a {
-    padding: 8px 15px;
-    display: block;
-    text-align: center;
-    min-width: 80px;
-  }
-  
-  /* Better spacing for mobile */
-  main {
-    padding: 15px;
-  }
-  
-  section {
-    padding: 20px;
-  }
-  
-  /* Profile adjustments */
-  .profile-container {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 20px;
-  }
-  
-  /* Better typography for mobile */
-  .bio-intro {
-    font-size: 1.1rem;
-  }
-  
-  h2.section-title {
-    font-size: 1.4rem;
-  }
-  
-  /* Skills improvements */
-  .skill-card {
-    padding: 20px;
-  }
-  
-  .skill-category {
-    font-size: 1.2rem;
-  }
-  
-  .skill-list li {
-    margin-bottom: 15px;
-  }
-  
-  /* Better touch targets */
-  .btn, .contact-item a {
-    padding: 12px 20px;
-    display: inline-block;
-  }
-  
-  .skill-list li:hover {
-    transform: none;  /* Disable hover effect on touch devices */
-  }
-  
-  /* Timeline adjustments */
-  .timeline {
-    padding-left: 15px;
-  }
-  
-  .experience-item p {
-    padding-left: 0;
-    margin-top: 15px;
-  }
-  
-  /* Footer adjustments */
-  footer {
-    padding: 20px 15px;
-  }
-  
-  .contact-item {
-    padding: 10px 0;
+    padding: 5px 10px;
+    font-size: 0.9rem;
   }
 }
 
-/* Extra small devices (phones, 480px and down) */
+/* Extra small devices optimization */
 @media (max-width: 480px) {
-  /* Further optimizations for very small screens */
+  /* Even more compact header */
+  header {
+    padding: 8px 5px;
+  }
+  
   header h1 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
   }
   
-  .bio-intro {
-    font-size: 1rem;
+  nav ul {
+    gap: 5px;
   }
   
-  .profile-container {
-    width: 150px;
-    height: 150px;
+  nav a {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+    min-width: 70px;
   }
   
-  .experience-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
-  }
-  
-  .experience-item h3 {
-    font-size: 1rem;
-  }
-  
-  /* Make skills more compact */
-  .skill-group h4 {
-    font-size: 0.95rem;
-  }
-  
-  .skill-level {
-    width: 50px;
-  }
-  
-  /* Adjust section padding */
-  section {
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-  
-  /* Single column everything */
-  .hero, .bio-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  /* Add slightly more space after header */
+  main {
+    padding-top: 20px;
   }
 }
 

@@ -45,3 +45,61 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Menu toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('nav ul');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('show');
+      
+      // Change icon based on menu state
+      const icon = menuToggle.querySelector('i');
+      if (navMenu.classList.contains('show')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+  }
+  
+  // Auto-highlight current page in nav
+  const currentLocation = window.location.pathname;
+  const navLinks = document.querySelectorAll('nav a');
+  
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    
+    // Check if current path includes the link path or if we're on index
+    if (currentLocation.includes(linkPath) && linkPath !== 'index.html') {
+      link.classList.add('active');
+    } else if (currentLocation.endsWith('/') && linkPath === 'index.html') {
+      link.classList.add('active');
+    }
+  });
+  
+  // Add subtle nav animation on scroll
+  let lastScrollTop = 0;
+  window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    const header = document.querySelector('header');
+    
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Scrolling down & past threshold
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      // Scrolling up
+      header.style.transform = 'translateY(0)';
+    }
+    
+    // Add background opacity based on scroll position
+    const scrollPercent = Math.min(currentScroll / 300, 1);
+    header.style.backgroundColor = `rgba(30, 30, 30, ${0.9 + scrollPercent * 0.1})`;
+    
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }, false);
+});

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - My Personal Site</title>
-    <!-- Add type attribute and ensure correct path -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <!-- Add Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/44a711d88a.js" crossorigin="anonymous"></script>
     <!-- Add fallback styles for critical elements -->
     <style>
         body {
@@ -48,71 +49,153 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
-        <section>
+        <section class="bio-section">
             <h2 class="section-title">Who I Am</h2>
-            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
-                <div class="profile-container">
-                    <!-- Replace with your image -->
-                    <div class="profile-placeholder">
-                        Your Photo
+            <div class="bio-container">
+                <div class="profile-container glow-effect">
+                    <img src="../assets/img/profile.jpg" alt="Mihnea Velcea">
+                </div>
+                <div class="bio-content">
+                    <p class="bio-intro">Hello! I'm <span class="highlight">Velcea Mihnea-Andrei</span>, a CS undergraduate based in Bucharest.</p>
+                    <p class="bio-specialty">I specialize in AI and Software Engineering and have been studying in this field for 6 years.</p>
+                    <p class="bio-background">
+                        My background includes an in-progress BS degree in Computer Science at the University of Bucharest. Throughout my academic journey, I've built a diverse portfolio of extracurricular involvement:
+                    </p>
+
+                    <div class="timeline">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <i class="fas fa-robot experience-icon"></i>
+                                <div>
+                                    <h3>Robotics Team Member</h3>
+                                    <span class="experience-period">2019-2023</span>
+                                </div>
+                            </div>
+                            <p>Active contributor across all technical departments, eventually advancing to Robot Design Lead and Team Lead positions. Developed technical expertise while honing leadership and collaborative skills.</p>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <i class="fas fa-lightbulb experience-icon"></i>
+                                <div>
+                                    <h3>The Change Hub</h3>
+                                    <span class="experience-period">2019-2023</span>
+                                </div>
+                            </div>
+                            <p>Served as Technical Lead and core team member for this student-run self-development organization. Managed technical infrastructure while supporting personal growth initiatives for fellow students.</p>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <i class="fas fa-users experience-icon"></i>
+                                <div>
+                                    <h3>ASMI</h3>
+                                    <span class="experience-period">2023-Present</span>
+                                </div>
+                            </div>
+                            <p>Active volunteer and multi-time Project Manager within the student organization of the Faculty of Mathematics and Computer Science. Orchestrated various successful events and initiatives.</p>
+                        </div>
                     </div>
                 </div>
-                <div style="flex: 1; min-width: 300px;">
-                    <p>Hello! I'm [Your Name], a [your profession] based in [your location].</p>
-                    <p style="margin-top: 15px;">I specialize in [your specialties] and have been working in this field for [number] years.</p>
-                    <p style="margin-top: 15px;">My background includes [education/training/experience details].</p>
-                </div>
             </div>
         </section>
         
-        <section>
+        <section class="skills-section">
             <h2 class="section-title">Skills</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                <div style="flex: 1; min-width: 200px; background-color: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;">
-                    <h3 style="color: var(--green-primary);">Technical Skills</h3>
-                    <ul style="margin-top: 10px; margin-left: 20px;">
-                        <li>Skill 1</li>
-                        <li>Skill 2</li>
-                        <li>Skill 3</li>
-                        <li>Skill 4</li>
-                    </ul>
+            
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3 class="skill-category">
+                        <i class="fas fa-code skill-icon"></i>
+                        Technical Skills
+                    </h3>
+                    
+                    <div class="skill-groups">
+                        <div class="skill-group">
+                            <h4>Programming Languages</h4>
+                            <ul class="skill-list">
+                                <li><span class="skill-name">C++</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">Python</span><span class="skill-level advanced"></span></li>
+                                <li><span class="skill-name">Java</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">JavaScript</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">HTML/CSS</span><span class="skill-level advanced"></span></li>
+                                <li><span class="skill-name">X86-Assembly</span><span class="skill-level beginner"></span></li>
+                                <li><span class="skill-name">SQL</span><span class="skill-level beginner"></span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-group">
+                            <h4>Tools & Technologies</h4>
+                            <ul class="skill-list">
+                                <li><span class="skill-name">Git</span><span class="skill-level advanced"></span></li>
+                                <li><span class="skill-name">Docker</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">Flask</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">Django</span><span class="skill-level intermediate"></span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-group">
+                            <h4>AI & Machine Learning</h4>
+                            <ul class="skill-list">
+                                <li><span class="skill-name">Large Language Models</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">Machine Learning</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">Knowledge Representation</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">Deep Learning</span><span class="skill-level intermediate"></span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 
-                <div style="flex: 1; min-width: 200px; background-color: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;">
-                    <h3 style="color: var(--green-primary);">Soft Skills</h3>
-                    <ul style="margin-top: 10px; margin-left: 20px;">
-                        <li>Skill 1</li>
-                        <li>Skill 2</li>
-                        <li>Skill 3</li>
-                        <li>Skill 4</li>
-                    </ul>
+                <div class="skill-card">
+                    <h3 class="skill-category">
+                        <i class="fas fa-users skill-icon"></i>
+                        Soft Skills
+                    </h3>
+                    
+                    <div class="skill-groups">
+                        <div class="skill-group">
+                            <h4>Management</h4>
+                            <ul class="skill-list">
+                                <li><span class="skill-name">Project Management</span><span class="skill-level advanced"></span></li>
+                                <li><span class="skill-name">Agile Methodologies</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">Scrum Framework</span><span class="skill-level intermediate"></span></li>
+                                <li><span class="skill-name">Time Management</span><span class="skill-level advanced"></span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-group">
+                            <h4>Personal</h4>
+                            <ul class="skill-list">
+                                <li><span class="skill-name">Problem Solving</span><span class="skill-level advanced"></span></li>
+                                <li><span class="skill-name">Critical Thinking</span><span class="skill-level advanced"></span></li>
+                                <li><span class="skill-name">Communication</span><span class="skill-level advanced"></span></li>
+                                <li><span class="skill-name">Adaptability</span><span class="skill-level advanced"></span></li>
+                                <li><span class="skill-name">Team Collaboration</span><span class="skill-level advanced"></span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
-        
-        <section>
-            <h2 class="section-title">Experience</h2>
-            <div style="margin-bottom: 25px;">
-                <h3 style="color: var(--green-light);">Position Title</h3>
-                <p style="color: var(--green-primary); font-style: italic;">Company Name | Date - Date</p>
-                <p style="margin-top: 10px;">Description of your responsibilities and achievements in this role.</p>
-            </div>
-            
-            <div>
-                <h3 style="color: var(--green-light);">Position Title</h3>
-                <p style="color: var(--green-primary); font-style: italic;">Company Name | Date - Date</p>
-                <p style="margin-top: 10px;">Description of your responsibilities and achievements in this role.</p>
             </div>
         </section>
     </main>
     
     <footer>
+        <h3 class="contact-title">Contact Me!</h3>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt contact-icon"></i>
+                <a href="tel:+40721990601">+40721990601</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope contact-icon"></i>
+                <a href="mailto:mihneave2004@gmail.com">mihneave2004@gmail.com</a>
+            </div>
+        </div>
         <p>&copy; 2025 Velcea Mihnea-Andrei. All rights reserved.</p>
     </footer>
     <script src="../assets/js/main.js"></script>

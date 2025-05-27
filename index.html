@@ -4,8 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Site</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Add type attribute and ensure correct path -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <!-- Add fallback styles for critical elements -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .profile-container {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #4CAF50;
+            aspect-ratio: 1;
+        }
+        .profile-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f0f0f0;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+        }
+    </style>
+    <!-- Update Font Awesome to a more reliable version -->
+    <script src="https://kit.fontawesome.com/44a711d88a.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>

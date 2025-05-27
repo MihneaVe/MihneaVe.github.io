@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>About Me - My Personal Site</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -12,20 +12,74 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+    
     <main>
         <section>
-            <h2>Welcome to My Personal Site</h2>
-            <p>This is the About page where you can learn more about me.</p>
-            <p>Here you can include information about your background, interests, and anything else you'd like to share.</p>
+            <h2 class="section-title">Who I Am</h2>
+            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                <div class="profile-container" style="min-width: 200px; height: 200px;">
+                    <!-- Replace with your image -->
+                    <div class="profile-placeholder">
+                        Your Photo
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <p>Hello! I'm [Your Name], a [your profession] based in [your location].</p>
+                    <p style="margin-top: 15px;">I specialize in [your specialties] and have been working in this field for [number] years.</p>
+                    <p style="margin-top: 15px;">My background includes [education/training/experience details].</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Skills</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 200px; background-color: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--green-primary);">Technical Skills</h3>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Skill 1</li>
+                        <li>Skill 2</li>
+                        <li>Skill 3</li>
+                        <li>Skill 4</li>
+                    </ul>
+                </div>
+                
+                <div style="flex: 1; min-width: 200px; background-color: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--green-primary);">Soft Skills</h3>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Skill 1</li>
+                        <li>Skill 2</li>
+                        <li>Skill 3</li>
+                        <li>Skill 4</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Experience</h2>
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: var(--green-light);">Position Title</h3>
+                <p style="color: var(--green-primary); font-style: italic;">Company Name | Date - Date</p>
+                <p style="margin-top: 10px;">Description of your responsibilities and achievements in this role.</p>
+            </div>
+            
+            <div>
+                <h3 style="color: var(--green-light);">Position Title</h3>
+                <p style="color: var(--green-primary); font-style: italic;">Company Name | Date - Date</p>
+                <p style="margin-top: 10px;">Description of your responsibilities and achievements in this role.</p>
+            </div>
         </section>
     </main>
+    
     <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 My Personal Site</p>
     </footer>
     <script src="../assets/js/main.js"></script>
 </body>

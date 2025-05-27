@@ -455,43 +455,171 @@ footer {
   color: var(--green-primary);
 }
 
+/* Touch device styles */
+.touch-device .skill-list li.active {
+  background-color: rgba(76, 175, 80, 0.1);
+  transform: translateX(5px);
+}
+
+.touch-device .contact-item:active {
+  transform: translateY(-3px);
+}
+
 /* Make sure this is at the end of your CSS file to handle responsive design */
+/* Base mobile optimizations */
 @media (max-width: 768px) {
-  .hero {
-    justify-content: center;
+  /* Existing responsive styles remain */
+  
+  /* Enhanced header for mobile */
+  header {
+    padding: 15px;
+    position: relative;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
     text-align: center;
   }
   
   nav ul {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
+    margin-top: 15px;
   }
   
-  .bio-container {
-    justify-content: center;
+  nav a {
+    padding: 8px 15px;
+    display: block;
+    text-align: center;
+    min-width: 80px;
+  }
+  
+  /* Better spacing for mobile */
+  main {
+    padding: 15px;
+  }
+  
+  section {
+    padding: 20px;
+  }
+  
+  /* Profile adjustments */
+  .profile-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+  }
+  
+  /* Better typography for mobile */
+  .bio-intro {
+    font-size: 1.1rem;
+  }
+  
+  h2.section-title {
+    font-size: 1.4rem;
+  }
+  
+  /* Skills improvements */
+  .skill-card {
+    padding: 20px;
+  }
+  
+  .skill-category {
+    font-size: 1.2rem;
+  }
+  
+  .skill-list li {
+    margin-bottom: 15px;
+  }
+  
+  /* Better touch targets */
+  .btn, .contact-item a {
+    padding: 12px 20px;
+    display: inline-block;
+  }
+  
+  .skill-list li:hover {
+    transform: none;  /* Disable hover effect on touch devices */
+  }
+  
+  /* Timeline adjustments */
+  .timeline {
+    padding-left: 15px;
   }
   
   .experience-item p {
     padding-left: 0;
+    margin-top: 15px;
   }
   
-  .experience-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+  /* Footer adjustments */
+  footer {
+    padding: 20px 15px;
   }
   
-  .skills-container {
-    grid-template-columns: 1fr;
+  .contact-item {
+    padding: 10px 0;
+  }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  /* Further optimizations for very small screens */
+  header h1 {
+    font-size: 1.3rem;
   }
   
-  .skill-groups {
-    flex-direction: column;
+  .bio-intro {
+    font-size: 1rem;
   }
   
-  .contact-info {
+  .profile-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .experience-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  
+  .experience-item h3 {
+    font-size: 1rem;
+  }
+  
+  /* Make skills more compact */
+  .skill-group h4 {
+    font-size: 0.95rem;
+  }
+  
+  .skill-level {
+    width: 50px;
+  }
+  
+  /* Adjust section padding */
+  section {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* Single column everything */
+  .hero, .bio-container {
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    text-align: center;
+  }
+}
+
+/* Fix for iOS Safari touch delay */
+@media (hover: hover) {
+  .skill-list li:hover {
+    transform: translateX(5px);
+  }
+  
+  .contact-item:hover {
+    transform: translateY(-3px);
   }
 }

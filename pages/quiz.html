@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smarthack Quiz</title>
+    <!-- Fonts remain the same -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Keep all your existing CSS */
+      :root {
+        --primary: #6c5ce7;
+        --primary-dark: #5a49d2;
+        --background: #0f172a;
+        --card-bg: #1e293b;
+        --accent: #38bdf8;
+        --accent-dark: #0284c7;
+        --accent-light: rgba(56, 189, 248, 0.1);
+        --text: #f8fafc;
+        --text-secondary: #94a3b8;
+        --border: #334155;
+        --success: #10b981;
+        --error: #ef4444;
+        --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        background-color: var(--background);
+        background-image: radial-gradient(
+            circle at 20% 30%,
+            rgba(108, 92, 231, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(56, 189, 248, 0.1) 0%,
+            transparent 50%
+          );
+        background-attachment: fixed;
+        color: var(--text);
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        padding: 40px;
+        border: 1px solid var(--border);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-family: "Poppins", sans-serif;
+        color: var(--text);
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      header p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        font-weight: 400;
+      }
+
+      .instructions {
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: rgba(56, 189, 248, 0.05);
+        border-left: 4px solid var(--accent);
+        border-radius: 6px;
+      }
+
+      .quiz-form {
+        margin-top: 30px;
+      }
+
+      .question-container {
+        margin-bottom: 30px;
+        padding: 25px;
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .question-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .question {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--text);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 12px;
+      }
+
+      .question span {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        background-color: rgba(51, 65, 85, 0.5);
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+
+      .option:hover {
+        background-color: rgba(56, 189, 248, 0.1);
+        border-color: var(--accent);
+      }
+
+      .option label {
+        cursor: pointer;
+        flex-grow: 1;
+        font-weight: 500;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .option input {
+        margin-right: 15px;
+        cursor: pointer;
+        appearance: none;
+        width: 22px;
+        height: 22px;
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+        position: relative;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+      }
+
+      .option input:checked {
+        border-color: var(--accent);
+        background-color: rgba(56, 189, 248, 0.2);
+      }
+
+      .option input:checked::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--accent);
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+
+      .btn {
+        padding: 14px 32px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary {
+        background-color: var(--accent);
+        color: var(--background);
+        box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--accent-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--text-secondary);
+        border: 1px solid var(--border);
+      }
+
+      .btn-secondary:hover {
+        background-color: rgba(148, 163, 184, 0.1);
+        color: var(--text);
+        border-color: var(--text-secondary);
+        transform: translateY(-2px);
+      }
+
+      #results {
+        background-color: var(--card-bg);
+        padding: 25px;
+        margin-top: 40px;
+        border-radius: 12px;
+        border-left: 4px solid var(--accent);
+        box-shadow: var(--shadow);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 30px 20px;
+          margin: 10px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .question-container {
+          padding: 20px;
+        }
+
+        .btn {
+          padding: 12px 24px;
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Progress indicator */
+      .progress-container {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .progress-bar {
+        height: 6px;
+        background: var(--border);
+        border-radius: 3px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        border-radius: 3px;
+        width: 0%;
+        transition: width 0.5s ease;
+      }
+
+      .progress-text {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      /* Add this style for correct answer indicator */
+      .correct-answer {
+        position: relative;
+      }
+
+      .correct-answer span::after {
+        content: " [CORRECT]";
+        color: var(--success);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Smarthack Quiz</h1>
+        <p>Challenge yourself with these randomized questions</p>
+      </header>
+
+      <div class="instructions">
+        <p>
+          Select the best answer for each question. Questions are randomized
+          each time you take the quiz.
+        </p>
+      </div>
+
+      <!-- Add the progress bar container back -->
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-text">
+          <span>0% complete</span>
+          <span id="question-counter">0/10 questions</span>
+        </div>
+      </div>
+
+      <form class="quiz-form" id="quiz-form">
+        <div id="questions-container">
+          <!-- Question containers will be inserted here dynamically -->
+        </div>
+
+        <div class="controls">
+          <button type="button" class="btn btn-secondary" id="clear-btn">
+            Reset Quiz
+          </button>
+          <button type="submit" class="btn btn-primary">Submit Answers</button>
+        </div>
+      </form>
+
+      <div id="results" style="display: none">
+        <!-- Results will be displayed here -->
+      </div>
+    </div>
+
+    <script>
+      // Define question templates
+      const questionTemplates = [
+        {
+          id: 1,
+          text: "Question about HTML: What does HTML stand for?",
+          options: [
+            "Hyper Text Markup Language [CORRECT]",
+            "High Tech Machine Learning",
+            "Hyperlink and Text Markup Language",
+            "Hyper Transfer Markup Language",
+          ],
+        },
+        {
+          id: 2,
+          text: "Question about CSS: Which property changes the text color?",
+          options: [
+            "font-style",
+            "color [CORRECT]",
+            "text-style",
+            "font-color",
+          ],
+        },
+        {
+          id: 3,
+          text: "Question about JavaScript: Which method adds an element to the end of an array?",
+          options: ["append()", "add()", "push() [CORRECT]", "insert()"],
+        },
+        {
+          id: 4,
+          text: "Question about databases: SQL stands for:",
+          options: [
+            "Structured Query Language [CORRECT]",
+            "Simple Query Language",
+            "Sequential Query Language",
+            "Standard Question Language",
+          ],
+        },
+        {
+          id: 5,
+          text: "Question about networking: Which protocol is used for secure web browsing?",
+          options: ["FTP", "HTTP", "SMTP", "HTTPS [CORRECT]"],
+        },
+        {
+          id: 6,
+          text: "Question about programming: What is the correct way to declare a variable in Python?",
+          options: [
+            "var x = 5;",
+            "let x = 5;",
+            "x = 5 [CORRECT]",
+            "int x = 5;",
+          ],
+        },
+        {
+          id: 7,
+          text: "Question about data structures: Which data structure follows LIFO?",
+          options: ["Queue", "Stack [CORRECT]", "Linked List", "Array"],
+        },
+        {
+          id: 8,
+          text: "Question about algorithms: What is the time complexity of binary search?",
+          options: ["O(n)", "O(n²)", "O(log n) [CORRECT]", "O(n log n)"],
+        },
+        {
+          id: 9,
+          text: "Question about operating systems: Which is not an operating system?",
+          options: ["Oracle [CORRECT]", "Windows", "Linux", "macOS"],
+        },
+        {
+          id: 10,
+          text: "Question about cloud computing: Which service model provides virtualized computing resources?",
+          options: ["SaaS", "IaaS [CORRECT]", "PaaS", "DaaS"],
+        },
+      ];
+
+      // Fisher-Yates shuffle algorithm to randomize arrays
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      // Function to generate a random quiz
+      function generateRandomQuiz() {
+        const questionsContainer = document.getElementById(
+          "questions-container"
+        );
+        questionsContainer.innerHTML = "";
+
+        // Shuffle the questions
+        const shuffledQuestions = shuffleArray([...questionTemplates]);
+
+        shuffledQuestions.forEach((question, index) => {
+          // Create a copy of options to shuffle
+          const options = [...question.options];
+
+          // Find the correct answer before shuffling
+          const correctIndex = options.findIndex((option) =>
+            option.includes("[CORRECT]")
+          );
+          const correctAnswer = options[correctIndex].replace(" [CORRECT]", "");
+
+          // Remove the [CORRECT] marker for display
+          options[correctIndex] = correctAnswer;
+
+          // Shuffle the options
+          const shuffledOptions = shuffleArray([...options]);
+
+          // Find where the correct answer is now
+          const newCorrectIndex = shuffledOptions.findIndex(
+            (option) => option === correctAnswer
+          );
+
+          // Create the question container
+          const questionNumber = index + 1;
+          const formattedNumber =
+            questionNumber < 10 ? `0${questionNumber}` : `${questionNumber}`;
+
+          const questionHTML = `
+            <div class="question-container" data-correct="${
+              newCorrectIndex + 1
+            }">
+              <div class="question" id="question-${questionNumber}">
+                <span>${formattedNumber}.</span> ${question.text}
+              </div>
+              <div class="options">
+                ${shuffledOptions
+                  .map(
+                    (option, i) => `
+                  <div class="option ${
+                    i === newCorrectIndex ? "correct-answer" : ""
+                  }">
+                    <label for="q${questionNumber}-option${i + 1}">
+                      <input
+                        type="radio"
+                        name="q${questionNumber}"
+                        id="q${questionNumber}-option${i + 1}"
+                        value="${i + 1}"
+                      />
+                      <span>${option}</span>
+                    </label>
+                  </div>
+                `
+                  )
+                  .join("")}
+              </div>
+            </div>
+          `;
+
+          questionsContainer.innerHTML += questionHTML;
+        });
+
+        // Add event listeners to all radio buttons
+        document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+          radio.addEventListener("change", updateProgress);
+        });
+      }
+
+      // Run on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        generateRandomQuiz();
+      });
+
+      // Track answered questions
+      function updateProgress() {
+        const totalQuestions = 10;
+        let answeredQuestions = 0;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+          const radioButtons = document.querySelectorAll(`input[name="q${i}"]`);
+          let isAnswered = false;
+          radioButtons.forEach((button) => {
+            if (button.checked) {
+              isAnswered = true;
+            }
+          });
+
+          if (isAnswered) {
+            answeredQuestions++;
+          }
+        }
+
+        // Update progress bar and text
+        const percentage = Math.floor(
+          (answeredQuestions / totalQuestions) * 100
+        );
+        document.getElementById("progress-fill").style.width = `${percentage}%`;
+        document.querySelector(
+          ".progress-text span"
+        ).textContent = `${percentage}% complete`;
+        document.getElementById(
+          "question-counter"
+        ).textContent = `${answeredQuestions}/${totalQuestions} questions`;
+      }
+
+      // Clear form functionality
+      document
+        .getElementById("clear-btn")
+        .addEventListener("click", function () {
+          document.getElementById("quiz-form").reset();
+
+          // Reset question borders
+          const questions = document.querySelectorAll(".question-container");
+          questions.forEach((question) => {
+            question.style.border = "none";
+            question.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+          });
+
+          // Reset progress
+          document.getElementById("progress-fill").style.width = "0%";
+          document.querySelector(".progress-text span").textContent =
+            "0% complete";
+          document.getElementById("question-counter").textContent =
+            "0/10 questions";
+
+          // Generate a new randomized quiz
+          generateRandomQuiz();
+        });
+
+      // Form submission
+      document
+        .getElementById("quiz-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Add validation to check if all questions are answered
+          let allAnswered = true;
+          let correctAnswers = 0;
+
+          const questions = document.querySelectorAll(".question-container");
+          questions.forEach((question, index) => {
+            // Existing question validation code...
+            const questionNumber = index + 1;
+            const options = question.querySelectorAll(".option input");
+            let answered = false;
+            let selectedAnswer = 0;
+
+            options.forEach((option) => {
+              if (option.checked) {
+                answered = true;
+                selectedAnswer = parseInt(option.value);
+              }
+            });
+
+            if (!answered) {
+              allAnswered = false;
+              question.style.border = "1px solid var(--error)";
+              question.style.boxShadow = "0 0 15px rgba(239, 68, 68, 0.3)";
+            } else {
+              question.style.border = "1px solid var(--border)";
+              question.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+
+              // Check if the answer is correct
+              const correctAnswer = parseInt(question.dataset.correct);
+              if (selectedAnswer === correctAnswer) {
+                correctAnswers++;
+              }
+            }
+          });
+
+          if (!allAnswered) {
+            alert("Please answer all questions before submitting.");
+            return;
+          }
+
+          // Show email collection form instead of results
+          document.getElementById("quiz-form").style.display = "none";
+          document.querySelector(".instructions").style.display = "none";
+          document.querySelector(".progress-container").style.display = "none";
+
+          // Create and display email collection form
+          document.getElementById("results").style.display = "block";
+          document.getElementById("results").innerHTML = `
+    <div style="text-align: center; padding: 30px 0;">
+      <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Enter Your Email to See Results</h2>
+      <p style="margin-bottom: 25px; color: var(--text-secondary);">Please provide your email address to view your quiz score.</p>
+      
+      <form id="email-form" action="https://formspree.io/f/xyzdbjvl" method="POST" style="max-width: 400px; margin: 0 auto;">
+        <input type="hidden" name="quiz_score" value="${correctAnswers}/10" />
+        <div style="margin-bottom: 20px;">
+          <input 
+            type="email" 
+            name="email"
+            id="user-email" 
+            placeholder="your.email@example.com" 
+            required
+            style="width: 100%; padding: 12px 15px; border-radius: 8px; background-color: rgba(51, 65, 85, 0.5); border: 1px solid var(--border); color: var(--text); font-size: 1rem;"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">See My Score</button>
+      </form>
+    </div>
+  `;
+
+          // Handle email form submission
+          document
+            .getElementById("email-form")
+            .addEventListener("submit", function (e) {
+              e.preventDefault();
+              const emailInput = document.getElementById("user-email");
+              const email = emailInput.value.trim();
+
+              // Basic email validation
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(email)) {
+                document.getElementById("email-error").style.display = "block";
+                emailInput.style.borderColor = "var(--error)";
+                return;
+              }
+
+              // Hide email error if previously shown
+              document.getElementById("email-error").style.display = "none";
+              emailInput.style.borderColor = "var(--border)";
+
+              // Save email (could save to localStorage, send to server, etc.)
+              console.log("Email submitted:", email);
+
+              // You would typically send this to your server along with the score
+              // For this example, we'll just log it to the console
+
+              // Now show the results
+              document.getElementById("results").innerHTML = `
+      <div style="text-align: center; padding: 30px 0;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--accent);">Your Score</h2>
+        <div style="font-size: 4rem; font-weight: 700; color: var(--text); margin-bottom: 10px;">
+          ${correctAnswers}/10
+        </div>
+        <div style="font-size: 1.5rem; color: var(--text-secondary);">
+          ${correctAnswers * 10}%
+        </div>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-secondary);">
+          Results sent to: ${email}
+        </p>
+        <button id="retake-btn" class="btn btn-primary" style="margin-top: 30px;">
+          Retake Quiz
+        </button>
+      </div>
+    `;
+
+              // Add event listener to the retake button
+              document
+                .getElementById("retake-btn")
+                .addEventListener("click", function () {
+                  location.reload(); // Reload the page to restart
+                });
+            });
+
+          // Scroll to top for email form
+          window.scrollTo(0, 0);
+        });
+    </script>
+  </body>
+</html>

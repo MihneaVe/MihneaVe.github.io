@@ -1,46 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
+    />
     <title>Projects</title>
-    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <script src="https://kit.fontawesome.com/44a711d88a.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/44a711d88a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <header>
-        <h1>My Projects</h1>
-        <button class="menu-toggle" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav>
-            <ul>
-                <li><a href="../index.html"><i class="fas fa-home nav-icon"></i><span class="nav-text">Home</span></a></li>
-                <li><a href="about.html"><i class="fas fa-user nav-icon"></i><span class="nav-text">About</span></a></li>
-                <li><a href="projects.html" class="active"><i class="fas fa-code nav-icon"></i><span class="nav-text">Projects</span></a></li>
-            </ul>
-        </nav>
+      <h1>My Projects</h1>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul>
+          <li>
+            <a href="../index.html"
+              ><i class="fas fa-home nav-icon"></i
+              ><span class="nav-text">Home</span></a
+            >
+          </li>
+          <li>
+            <a href="about.html"
+              ><i class="fas fa-user nav-icon"></i
+              ><span class="nav-text">About</span></a
+            >
+          </li>
+          <li>
+            <a href="projects.html" class="active"
+              ><i class="fas fa-code nav-icon"></i
+              ><span class="nav-text">Projects</span></a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <section>
-            WIP!
-        </section>
+      <section>
+        <div class="project-list">
+          <!-- Isochrone Map Project -->
+          <article class="project-item">
+            <h2>
+              <i class="fas fa-map-marked-alt"></i> Dynamically Adjusted
+              Isochrone Map
+            </h2>
+            <p>
+              Collaborative project with 5 team members focused on visualizing
+              travel times as interactive, color-coded zones.
+            </p>
+            <ul>
+              <li>
+                <strong>My Role:</strong> Led mathematical algorithm development
+                for isochrone computation and designed API architecture
+              </li>
+              <li>
+                <strong>Features:</strong> Interactive travel-time zones with
+                real-time traffic data, POI management, and time-deformed views
+              </li>
+              <li>
+                <strong>Tech:</strong> Python (Flask), PostgreSQL, Leaflet.js,
+                OpenRouteService, scikit-learn
+              </li>
+            </ul>
+            <a
+              class="btn"
+              href="https://github.com/liviu274/Dynamically-adjusted-isochrone-map"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View repository <i class="fas fa-external-link-alt"></i>
+            </a>
+          </article>
+
+          <!-- DeepFake Project -->
+          <article class="project-item">
+            <h2><i class="fas fa-brain"></i> DeepFake Image Classifier</h2>
+            <p>
+              A comprehensive deep learning solution for detecting and
+              classifying AI-generated or manipulated images across 5
+              categories.
+            </p>
+            <ul>
+              <li>
+                <strong>My Role:</strong> Solo developer implementing
+                state-of-the-art techniques in computer vision
+              </li>
+              <li>
+                <strong>Features:</strong> Custom ResNet backbones, MixUp/CutMix
+                regularization, SAM optimization, and model ensembling
+              </li>
+              <li>
+                <strong>Tech:</strong> PyTorch, TorchVision, pandas, NumPy, data
+                augmentation pipelines
+              </li>
+            </ul>
+            <a
+              class="btn"
+              href="https://github.com/MihneaVe/DeepFakeImageClassifier"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View repository <i class="fas fa-external-link-alt"></i>
+            </a>
+          </article>
+
+          <!-- Railway Project -->
+          <article class="project-item">
+            <h2>
+              <i class="fas fa-train"></i> Railway Station Management System
+            </h2>
+            <p>
+              A comprehensive management system simulating a complete railway
+              ecosystem for both administrators and customers.
+            </p>
+            <ul>
+              <li>
+                <strong>My Role:</strong> Full-stack developer implementing all
+                system components and database architecture
+              </li>
+              <li>
+                <strong>Features:</strong> Station/train management, route
+                planning, ticket purchasing with seat selection, and revenue
+                analytics
+              </li>
+              <li>
+                <strong>Tech:</strong> Java, PostgreSQL, JDBC, layered
+                architecture with role-based access control
+              </li>
+            </ul>
+            <a
+              class="btn"
+              href="https://github.com/MihneaVe/Train_Go_Brr_2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View repository <i class="fas fa-external-link-alt"></i>
+            </a>
+          </article>
+        </div>
+      </section>
     </main>
     <footer>
-        <h3 class="contact-title">Contact Me!</h3>
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-phone-alt contact-icon"></i>
-                <a href="tel:+40721990601">+40721990601</a>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope contact-icon"></i>
-                <a href="mailto:mihneave2004@gmail.com">mihneave2004@gmail.com</a>
-            </div>
+      <h3 class="contact-title">Contact Me!</h3>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone-alt contact-icon"></i>
+          <a href="tel:+40721990601">+40721990601</a>
         </div>
-        <p>&copy; 2025 Velcea Mihnea-Andrei. All rights reserved.</p>
+        <div class="contact-item">
+          <i class="fas fa-envelope contact-icon"></i>
+          <a href="mailto:mihneave2004@gmail.com">mihneave2004@gmail.com</a>
+        </div>
+      </div>
+      <p>&copy; 2025 Velcea Mihnea-Andrei. All rights reserved.</p>
     </footer>
     <script src="../assets/js/main.js"></script>
-</body>
+  </body>
 </html>

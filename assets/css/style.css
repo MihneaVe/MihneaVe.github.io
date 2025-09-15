@@ -1,12 +1,14 @@
 :root {
   --dark-bg: #121212;
   --dark-secondary: #1e1e1e;
-  --green-primary: #4CAF50;
-  --green-accent: #2E7D32;
-  --green-light: #81C784;
+  --green-primary: #4caf50;
+  --green-secondary: #66bb6a;
+  --green-accent: #2e7d32;
+  --green-light: #81c784;
   --text-light: #f0f0f0;
   --text-dark: #121212;
   --spacing: 20px;
+  --green-rgb: 76, 175, 80; /* This should match your green-primary color in RGB format */
 }
 
 * {
@@ -16,7 +18,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--dark-bg);
   color: var(--text-light);
   line-height: 1.6;
@@ -32,7 +34,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: transform 3s ease, background-color 3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 header h1 {
@@ -71,7 +73,7 @@ nav a {
 }
 
 nav a::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -82,7 +84,7 @@ nav a::before {
   transform: translateX(-50%);
 }
 
-nav a:hover::before, 
+nav a:hover::before,
 nav a.active::before {
   width: 80%;
 }
@@ -142,14 +144,19 @@ main {
 }
 
 .glow-effect::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -5px;
   left: -5px;
   right: -5px;
   bottom: -5px;
   border-radius: 50%;
-  background: linear-gradient(45deg, var(--green-primary), transparent, var(--green-primary));
+  background: linear-gradient(
+    45deg,
+    var(--green-primary),
+    transparent,
+    var(--green-primary)
+  );
   background-size: 400%;
   opacity: 0;
   transition: opacity 0.3s;
@@ -162,15 +169,25 @@ main {
 }
 
 @keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .profile-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--green-accent), var(--green-primary));
+  background: linear-gradient(
+    135deg,
+    var(--green-accent),
+    var(--green-primary)
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -248,7 +265,8 @@ footer {
   margin-bottom: 15px;
 }
 
-.bio-specialty, .bio-background {
+.bio-specialty,
+.bio-background {
   margin-top: 15px;
 }
 
@@ -265,13 +283,18 @@ footer {
 }
 
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 10px;
   bottom: 10px;
   width: 3px;
-  background: linear-gradient(to bottom, var(--green-accent), var(--green-primary), var(--green-light));
+  background: linear-gradient(
+    to bottom,
+    var(--green-accent),
+    var(--green-primary),
+    var(--green-light)
+  );
   border-radius: 3px;
 }
 
@@ -285,7 +308,7 @@ footer {
 }
 
 .experience-item::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 15px;
   height: 15px;
@@ -300,6 +323,33 @@ footer {
   align-items: center;
   gap: 15px;
   margin-bottom: 10px;
+}
+
+.experience-logo {
+  width: 70px; /* Increased from 36px to about double size */
+  height: 70px; /* Increased from 36px to about double size */
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  margin-right: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  border: 2px solid var(--green-primary); /* Kept the thin green border */
+  padding: 3px; /* Slightly increased inner padding */
+}
+
+.experience-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* Ensure image itself is also round */
+}
+
+.experience-header h3 {
+  margin-bottom: 4px;
 }
 
 .experience-icon {
@@ -431,7 +481,7 @@ footer {
 }
 
 .skill-level::after {
-  content: '';
+  content: "";
   height: 100%;
   border-radius: 4px;
   background-color: var(--green-primary);
@@ -494,7 +544,7 @@ nav a {
 }
 
 nav a::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -505,7 +555,7 @@ nav a::before {
   transform: translateX(-50%);
 }
 
-nav a:hover::before, 
+nav a:hover::before,
 nav a.active::before {
   width: 80%;
 }
@@ -547,7 +597,7 @@ nav a.active {
     align-items: center;
     padding: 15px;
   }
-  
+
   nav ul {
     margin-top: 10px;
     display: flex;
@@ -555,13 +605,13 @@ nav a.active {
     gap: 10px;
     flex-wrap: wrap;
   }
-  
+
   nav a {
     padding: 8px 12px;
     font-size: 0.95rem;
     justify-content: center;
   }
-  
+
   nav a:hover {
     transform: translateY(-1px);
   }
@@ -572,15 +622,15 @@ nav a.active {
     position: relative;
     padding: 12px 5px;
   }
-  
+
   .menu-toggle {
     display: block;
   }
-  
+
   nav {
     width: 100%;
   }
-  
+
   nav ul {
     display: flex;
     flex-direction: row;
@@ -588,7 +638,7 @@ nav a.active {
     gap: 5px;
     margin-top: 10px;
   }
-  
+
   nav a {
     padding: 10px 12px;
     width: 100%;
@@ -597,19 +647,19 @@ nav a.active {
     border-radius: 4px;
     font-size: 0.9rem;
   }
-  
+
   nav a:hover::before {
     display: none;
   }
-  
+
   nav a .nav-icon {
     font-size: 1.1rem;
   }
-  
+
   .nav-text {
     font-size: 0.85rem;
   }
-  
+
   nav a:active {
     background-color: rgba(76, 175, 80, 0.2);
   }
@@ -621,22 +671,22 @@ nav a.active {
   header {
     padding: 8px 5px;
   }
-  
+
   header h1 {
     font-size: 1.1rem;
     margin-bottom: 5px;
   }
-  
+
   nav ul {
     gap: 5px;
   }
-  
+
   nav a {
     padding: 4px 8px;
     font-size: 0.85rem;
     min-width: 70px;
   }
-  
+
   /* Add slightly more space after header */
   main {
     padding-top: 20px;
@@ -648,7 +698,7 @@ nav a.active {
   .skill-list li:hover {
     transform: translateX(5px);
   }
-  
+
   .contact-item:hover {
     transform: translateY(-3px);
   }
@@ -657,35 +707,38 @@ nav a.active {
 /* Mobile improvements for better centering */
 @media (max-width: 768px) {
   /* Existing responsive styles remain */
-  
+
   /* Improved text alignment */
-  .bio-intro, .bio-specialty, .bio-background, 
-  .section-title, .hero-content {
+  .bio-intro,
+  .bio-specialty,
+  .bio-background,
+  .section-title,
+  .hero-content {
     text-align: center;
   }
-  
+
   /* Center hero content better */
   .hero {
     justify-content: center;
     text-align: center;
   }
-  
+
   /* Ensure skills are centered */
   .skills-container {
     justify-content: center;
   }
-  
+
   /* Center profile image */
   .profile-container {
     margin: 0 auto 25px;
   }
-  
+
   /* Better spacing for sections */
   section {
     padding: 25px;
     text-align: center;
   }
-  
+
   /* Fix timeline alignment on mobile */
   .timeline {
     margin-left: auto;
@@ -697,7 +750,7 @@ nav a.active {
   .experience-header {
     justify-content: center;
   }
-  
+
   /* Center footer items better */
   footer {
     padding: 20px 15px;
@@ -708,24 +761,24 @@ nav a.active {
   .experience-icon {
     margin-right: 0;
   }
-  
+
   /* Center buttons */
   .btn {
     display: inline-block;
     margin: 0 auto;
   }
-  
+
   /* Keep the timeline vertical line centered */
   .timeline::before {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .experience-item::before {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .experience-item {
     padding-left: 0;
   }
@@ -734,47 +787,48 @@ nav a.active {
 /* Extra small device improvements */
 @media (max-width: 480px) {
   /* Existing small device styles remain */
-  
+
   /* Adjust section padding for better mobile appearance */
   section {
     padding: 20px 15px;
   }
-  
+
   /* Make skill groups more centered */
   .skill-groups {
     align-items: center;
   }
-  
+
   /* Better spacing for skill levels */
   .skill-list li {
     flex-direction: column;
     align-items: center;
     gap: 10px;
   }
-  
+
   .skill-level {
     width: 80%;
     margin-top: 5px;
   }
-  
+
   /* Center skill names */
   .skill-name {
     text-align: center;
     padding-left: 0;
   }
-  
+
   .skill-name::before {
     display: none;
   }
-  
+
   /* Improve experience item text alignment */
   .experience-item p {
     padding-left: 0;
     text-align: center;
   }
-  
+
   /* Adjust margins for stacked elements */
-  .hero-content, .bio-content {
+  .hero-content,
+  .bio-content {
     margin: 0 auto;
     max-width: 100%;
   }
@@ -790,7 +844,7 @@ nav a.active {
 }
 
 .contact-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -837,96 +891,121 @@ nav a.active {
   color: var(--green-primary);
 }
 
-@media (max-width: 768px) {
-  /* Existing mobile styles remain */
-  
-  /* Improved timeline spacing for mobile */
-  .timeline {
-    padding-left: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-top: 30px;
-  }
-  
-  .timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    bottom: 0;
-  }
-  
-  .experience-item {
-    padding: 0 0 40px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .experience-item::before {
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-  }
-  
-  .experience-header {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
-  }
-  
-  .experience-icon {
-    margin-bottom: 10px;
-    margin-right: 0;
-  }
-  
-  .experience-item p {
-    padding-left: 0;
-    margin-top: 15px;
-    max-width: 90%;
-  }
-  
-  /* Add extra space between timeline entries */
-  .experience-item:not(:last-child) {
-    margin-bottom: 15px;
-  }
+/* Project List Styling Enhancements */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 2rem;
 }
 
-@media (max-width: 480px) {
-  /* Additional timeline fixes for very small screens */
-  .timeline {
-    width: 100%;
-    max-width: 100%;
-    padding: 15px 0;
-  }
-  
-  .timeline::before {
-    width: 2px; /* Thinner line for mobile */
-  }
-  
-  .experience-item::before {
-    width: 12px; /* Smaller dots for mobile */
-    height: 12px;
-  }
-  
-  .experience-item {
-    padding-bottom: 35px;
-  }
-  
-  .experience-icon {
-    width: 35px;
-    height: 35px;
-  }
-  
-  /* Ensure no text overflows or collides with timeline elements */
-  .experience-header div {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .experience-item p {
-    width: 100%;
-    text-align: center;
-    padding: 0 5px;
+.project-item {
+  background: var(--dark-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--green-primary),
+    var(--green-secondary)
+  );
+  z-index: 1;
+}
+
+.project-item h2 {
+  padding: 20px 25px;
+  margin: 0;
+  font-size: 1.3rem; /* Slightly smaller font */
+  color: var(--green-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: flex-start; /* Changed from center to allow wrapping */
+  gap: 12px;
+  line-height: 1.4;
+  flex-wrap: wrap; /* Allow wrapping for long titles */
+}
+
+.project-item h2 i {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(var(--green-rgb), 0.3);
+  margin-top: 2px; /* Align icon with first line of text */
+}
+
+.project-item p {
+  padding: 20px 25px;
+  margin: 0;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.project-item ul {
+  padding: 0 25px 20px;
+  margin: 0;
+  list-style-position: inside;
+  color: var(--text-light);
+}
+
+.project-item ul li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.project-item ul li::before {
+  content: "•";
+  color: var(--green-primary);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.project-item .btn {
+  margin: auto 25px 25px;
+  padding: 12px 20px;
+  background-color: rgba(var(--green-rgb), 0.1);
+  color: var(--green-primary);
+  border: 1px solid var(--green-primary);
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-item .btn:hover {
+  background-color: var(--green-primary);
+  color: var(--dark-primary);
+}
+
+/* Add this media query to ensure good mobile display */
+@media (max-width: 768px) {
+  .project-list {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
   }
 }

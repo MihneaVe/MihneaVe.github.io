@@ -646,6 +646,11 @@ nav a.active {
     padding-left: 0;
     text-align: left; /* Left align text */
   }
+
+  /* Adjust image alignment in the experience header for mobile */
+  .experience-logo {
+    margin-right: 10px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1038,5 +1043,47 @@ nav a.active {
   .project-list {
     grid-template-columns: 1fr;
     padding: 0 15px;
+  }
+}
+
+/* Override the mobile timeline styles to ensure no text overlap */
+@media (max-width: 768px) {
+  /* Remove the conflicting timeline style */
+  .timeline::before {
+    left: 0 !important; /* Force left alignment */
+    transform: none !important; /* Remove centering transform */
+    width: 3px;
+  }
+
+  .experience-item::before {
+    left: 0 !important; /* Force left alignment */
+    transform: none !important; /* Remove centering transform */
+  }
+
+  /* Add more spacing for the timeline content */
+  .timeline {
+    margin-left: 10px !important;
+    margin-right: auto !important;
+    max-width: 90% !important;
+    padding-left: 25px !important;
+  }
+
+  .experience-item {
+    padding-left: 25px !important;
+    text-align: left !important;
+  }
+
+  .experience-header {
+    justify-content: flex-start !important; /* Force left alignment */
+  }
+
+  .experience-item p {
+    padding-left: 0 !important;
+    text-align: left !important;
+  }
+
+  /* Adjust image alignment in the experience header for mobile */
+  .experience-logo {
+    margin-right: 10px !important;
   }
 }

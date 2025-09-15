@@ -615,6 +615,39 @@ nav a.active {
   nav a:hover {
     transform: translateY(-1px);
   }
+
+  /* Fix timeline on mobile */
+  .timeline {
+    margin-left: 20px; /* Give space on the left for the line */
+    margin-right: auto;
+    max-width: 90%;
+    padding-left: 35px; /* Increased padding to avoid text overlap */
+  }
+
+  .timeline::before {
+    left: 0; /* Move line to left instead of center */
+    transform: none; /* Remove centering transform */
+  }
+
+  .experience-item::before {
+    left: 0; /* Move dots to left instead of center */
+    transform: none; /* Remove centering transform */
+  }
+
+  .experience-item {
+    padding-left: 25px; /* Add padding to prevent text overlap */
+    text-align: left; /* Align text to left for better readability */
+  }
+
+  /* Fix experience item content alignment */
+  .experience-header {
+    justify-content: flex-start; /* Align to left instead of center */
+  }
+
+  .experience-item p {
+    padding-left: 0;
+    text-align: left; /* Left align text */
+  }
 }
 
 @media (max-width: 480px) {

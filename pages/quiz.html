@@ -977,7 +977,7 @@
     <div style="text-align: center; padding: 30px 0;">
       <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Enter Your Email to See Results</h2>
       <p style="margin-bottom: 25px; color: var(--text-secondary);">Please provide your email address to view your quiz score.</p>
-  
+      
       <form id="email-form" action="https://formspree.io/f/xkgqvgna" method="POST" style="max-width: 400px; margin: 0 auto;">
         <input type="hidden" name="quiz_score" value="${correctAnswers}/10" />
         <input type="hidden" name="_cc" id="cc-email" />
@@ -1002,9 +1002,46 @@
           document
             .getElementById("email-form")
             .addEventListener("submit", function (e) {
+              e.preventDefault(); // Prevent normal form submission
+
               const email = document.getElementById("user-email").value.trim();
               document.getElementById("cc-email").value = email;
-              // No preventDefault() here - let the form submit normally to Formspree
+              const score = document.querySelector(
+                'input[name="quiz_score"]'
+              ).value;
+
+              // Get form data
+              const formData = new FormData(this);
+
+              // Submit to Formspree using fetch
+              fetch("https://formspree.io/f/xkgqvgna", {
+                method: "POST",
+                body: formData,
+                headers: {
+                  Accept: "application/json",
+                },
+              })
+                .then((response) => {
+                  if (response.ok) {
+                    // Display score on the same page
+                    document.getElementById("results").innerHTML = `
+                      <div style="text-align: center; padding: 30px 0;">
+                        <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Your Quiz Results</h2>
+                        <div style="font-size: 3rem; font-weight: bold; margin: 30px 0; color: var(--primary);">${score}</div>
+                        <p style="margin-bottom: 25px; color: var(--text-secondary);">Thank you for completing the quiz!</p>
+                        <button onclick="location.reload()" class="btn btn-primary" style="width: 200px;">Retake Quiz</button>
+                      </div>
+                    `;
+                  } else {
+                    throw new Error("Form submission failed");
+                  }
+                })
+                .catch((error) => {
+                  console.error("Error:", error);
+                  alert(
+                    "There was a problem submitting your form. Please try again."
+                  );
+                });
             });
 
           // Scroll to top for email form

@@ -1,24 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM fully loaded and parsed');
 
-  // Mobile touch handling
-  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  if (isTouchDevice) {
-    document.body.classList.add('touch-device');
-  }
-
-  // Menu toggle functionality
+  // --- Mobile Menu Toggle ---
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('nav');
   
-  console.log('menuToggle:', menuToggle);
-  console.log('navMenu:', navMenu);
-
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', function() {
-      console.log('Menu toggle clicked');
       navMenu.classList.toggle('show');
-      
       const icon = menuToggle.querySelector('i');
       if (navMenu.classList.contains('show')) {
         icon.classList.remove('fa-bars');
@@ -30,19 +19,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Auto-highlight current page in nav
-  const currentLocation = window.location.pathname;
+  // --- Close mobile menu on link click ---
   const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => {
-    const linkPath = link.getAttribute('href');
-    if (currentLocation.includes(linkPath) && linkPath !== 'index.html') {
-      link.classList.add('active');
-    } else if (currentLocation.endsWith('/') && linkPath === 'index.html') {
-      link.classList.add('active');
-    }
+    link.addEventListener('click', () => {
+      if (navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+      }
+    });
   });
 
-  // Typing animation
+  // --- Typing Animation ---
   const typedTextSpan = document.getElementById('typed-text');
   if (typedTextSpan) {
     const textToType = "Mihnea-Andrei Velcea";
@@ -57,22 +46,38 @@ document.addEventListener('DOMContentLoaded', function() {
     typeWriter();
   }
 
-  // Add subtle nav animation on scroll
-  let lastScrollTop = 0;
-  window.addEventListener('scroll', function() {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    const header = document.querySelector('header');
-    
-    if (header) { // Ensure header exists
-      if (currentScroll > lastScrollTop && currentScroll > 100) {
-        // Scrolling down & past threshold
-        header.style.transform = 'translateY(-100%)';
-      } else {
-        // Scrolling up
-        header.style.transform = 'translateY(0)';
+  // --- Scroll Animations ---
+  const fadeInElements = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
-      
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    }
-  }, false);
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  fadeInElements.forEach(el => {
+    observer.observe(el);
+  });
+
+  // --- Active Nav Link on Scroll ---
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= sectionTop - 60) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').includes(current)) {
+        link.classList.add('active');
+      }
+    });
+  });
 });

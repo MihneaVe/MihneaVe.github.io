@@ -1,7 +1,7 @@
 /*
 * Website: UserSite
 * Author: Gemini
-* Version: 2.0
+* Version: 2.1
 *
 * TABLE OF CONTENTS
 * -----------------
@@ -22,6 +22,7 @@
 *   - Profile
 *   - Timeline
 *   - Cards (Project & Skill)
+*   - Animations
 *
 * 4.0 PAGES
 *   - Projects Page
@@ -54,6 +55,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -157,6 +162,17 @@ footer {
   margin-top: var(--spacing-lg);
 }
 
+footer .contact-item a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+footer .contact-item a:hover {
+    color: var(--green-primary);
+}
+
+
 /* 3.0 COMPONENTS
 --------------------------------------------- */
 .btn {
@@ -235,13 +251,13 @@ footer {
 .timeline {
   margin-top: 40px;
   position: relative;
-  padding-left: 30px;
+  padding-left: 45px;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: 6px;
   top: 10px;
   bottom: 10px;
   width: 2px;
@@ -264,14 +280,34 @@ footer {
   height: 14px;
   border-radius: 50%;
   background-color: var(--green-primary);
-  left: -6px;
+  left: 0;
   top: 5px;
   border: 2px solid var(--dark-bg);
+  z-index: 1;
 }
 
 .experience-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
   margin-bottom: 10px;
 }
+
+.experience-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--green-primary);
+    flex-shrink: 0;
+}
+
+.experience-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 .experience-header h3 {
   font-size: 1.2rem;
@@ -385,6 +421,20 @@ footer {
   font-weight: 500;
 }
 
+/* 3.1 ANIMATIONS
+--------------------------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* 4.0 PAGES
 --------------------------------------------- */
 .github-link-container {
@@ -425,7 +475,7 @@ footer {
 
   nav {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -468,20 +518,10 @@ footer {
   }
 
   .timeline {
-    padding-left: 0;
-    text-align: left;
-  }
-
-  .timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .experience-item {
-    padding-left: 30px;
+    padding-left: 20px;
   }
 
   .experience-item::before {
-    left: 0;
+    left: -5px;
   }
 }

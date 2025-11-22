@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
     />
-    <title>My Website</title>
+    <title>Mihnea-Andrei Velcea - Personal Portfolio</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <script
@@ -23,21 +23,23 @@
       <nav>
         <ul>
           <li>
-            <a href="index.html" class="active"
-              ><i class="fas fa-home nav-icon"></i
-              ><span class="nav-text">Home</span></a
+            <a href="#hero" class="active"
+              ><i class="fas fa-home nav-icon"></i><span class="nav-text">Home</span></a
             >
           </li>
           <li>
-            <a href="pages/about.html"
-              ><i class="fas fa-user nav-icon"></i
-              ><span class="nav-text">About</span></a
+            <a href="#about"
+              ><i class="fas fa-user nav-icon"></i><span class="nav-text">About</span></a
             >
           </li>
           <li>
-            <a href="pages/projects.html"
-              ><i class="fas fa-code nav-icon"></i
-              ><span class="nav-text">Projects</span></a
+            <a href="#projects"
+              ><i class="fas fa-code nav-icon"></i><span class="nav-text">Projects</span></a
+            >
+          </li>
+           <li>
+            <a href="#contact"
+              ><i class="fas fa-envelope nav-icon"></i><span class="nav-text">Contact</span></a
             >
           </li>
         </ul>
@@ -45,7 +47,7 @@
     </header>
 
     <main>
-      <section id="hero" class="hero">
+      <section id="hero" class="hero fade-in">
         <div class="profile-container">
           <img src="./assets/img/profile.jpg" alt="Mihnea Velcea" />
         </div>
@@ -54,60 +56,168 @@
           <p>
             A passionate Computer Science student with a strong interest in AI and Software Engineering. Welcome to my personal space where I share my projects and journey.
           </p>
-          <a href="pages/about.html" class="btn">Learn More About Me</a>
+          <a href="#about" class="btn">Learn More About Me</a>
         </div>
       </section>
 
-      <section id="about-preview">
+      <section id="about" class="fade-in">
         <h2 class="section-title">About <span class="highlight">Me</span></h2>
         <div class="bio-container">
+           <div class="profile-container">
+            <img src="./assets/img/profile.jpg" alt="Mihnea Velcea" />
+          </div>
           <div class="bio-content">
             <p>
-              I am a dedicated student at the University of Bucharest, deeply involved in the tech community through the Mathematics and Computer Science Student Association (ASMI). My focus is on building innovative solutions and tackling complex challenges in AI and software development.
+              Hello! I'm Mihnea-Andrei Velcea, a passionate Computer Science student based in Bucharest with a strong interest in AI and Software Engineering.
             </p>
             <p>
-              This website is a showcase of my work, skills, and experiences. Feel free to explore my projects and get in touch.
+              Currently pursuing my BSc in Computer Science at the University of Bucharest, my academic journey is complemented by hands-on experience and a diverse portfolio of extracurricular involvement. I am dedicated to solving complex problems and building innovative solutions, constantly exploring the intersections of AI, machine learning, and robust software development practices.
             </p>
-             <a href="pages/about.html" class="btn">Read More</a>
           </div>
         </div>
       </section>
 
-      <section id="projects-preview">
-        <h2 class="section-title">My <span class="highlight">Work</span></h2>
+      <section id="experience" class="fade-in">
+        <h2 class="section-title">My <span class="highlight">Experience</span></h2>
+        <div class="timeline">
+          <div class="experience-item">
+             <div class="experience-header">
+                <div class="experience-logo">
+                    <img src="./assets/img/asmi.png" alt="ASMI Logo" />
+                </div>
+                <div>
+                    <h3>Mathematics and Computer Science Student Association (ASMI)</h3>
+                    <span class="experience-period">11/2023 – Present</span>
+                </div>
+            </div>
+            <p>
+              As a volunteer in the Management and Fundraising department, I've had the opportunity to contribute to the organization's growth and success. My responsibilities include project management, fundraising, and team coordination, allowing me to develop strong leadership and organizational skills.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <section id="skills" class="fade-in">
+        <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+        <div class="skills-container">
+          <div class="skill-card">
+            <h3 class="skill-category">
+              <i class="fas fa-code skill-icon"></i>
+              Technical Skills
+            </h3>
+            <div class="skill-groups">
+              <div class="skill-group">
+                <h4>Languages</h4>
+                <ul class="skill-list">
+                  <li>C/C++</li>
+                  <li>Python</li>
+                  <li>Java</li>
+                  <li>SQL</li>
+                  <li>JavaScript</li>
+                  <li>HTML/CSS</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h4>AI & ML</h4>
+                <ul class="skill-list">
+                  <li>Machine Learning</li>
+                  <li>Deep Learning</li>
+                  <li>NLP</li>
+                  <li>Scikit-learn</li>
+                  <li>PyTorch</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h4>Tools & Tech</h4>
+                <ul class="skill-list">
+                  <li>Git/Github</li>
+                  <li>Docker</li>
+                  <li>CI/CD</li>
+                  <li>REST APIs</li>
+                  <li>LangChain</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-category">
+              <i class="fas fa-users skill-icon"></i>
+              Soft Skills
+            </h3>
+            <div class="skill-groups">
+               <div class="skill-group">
+                <h4>Management</h4>
+                <ul class="skill-list">
+                  <li>Project Management</li>
+                  <li>Agile Methodologies</li>
+                  <li>Scrum</li>
+                  <li>Time Management</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h4>Personal</h4>
+                <ul class="skill-list">
+                  <li>Problem Solving</li>
+                  <li>Critical Thinking</li>
+                  <li>Communication</li>
+                  <li>Adaptability</li>
+                  <li>Team Collaboration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="fade-in">
+        <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+        
+        <div class="github-link-container">
+          <a href="https://github.com/MihneaVe" target="_blank" rel="noopener noreferrer" class="btn github-btn">
+            <i class="fab fa-github"></i> View My GitHub Profile
+          </a>
+        </div>
+
         <div class="project-list">
           <article class="project-item">
-            <h2>Deepfake Image Classification</h2>
-            <p>A solo project focused on detecting AI-generated images with 91% accuracy.</p>
-            <a href="pages/projects.html" class="btn">View Details</a>
+            <h2><i class="fas fa-camera-retro"></i> Deepfake Image Classification</h2>
+            <p>Competed in an image classification challenge focused on detecting deepfake images generated by advanced generative models. Designed and trained custom (non–pre-trained) models from scratch, achieving 91% classification accuracy on the test set. Improved performance through ensemble learning, grid-search hyperparameter tuning, and data augmentation, ensuring robustness against overfitting and distribution shifts.</p>
+            <ul>
+              <li><strong>Role:</strong> Solo Developer</li>
+              <li><strong>Technologies:</strong> PyTorch, Pandas, NumPy, Pillow</li>
+            </ul>
           </article>
+
           <article class="project-item">
-            <h2>Stochastic Process Simulation</h2>
-            <p>An R-based simulation framework for statistical modeling and analysis.</p>
-             <a href="pages/projects.html" class="btn">View Details</a>
+            <h2><i class="fas fa-chart-line"></i> Stochastic Process Simulation & Statistical Modeling</h2>
+            <p>Developed an R-based simulation framework to model sequential stage completion times with exponential random variables and probabilistic stopping conditions. Approximated expectations, probabilities, and distributions of total process times through large-scale Monte Carlo simulations (10⁶ runs), and validated against exact analytical results. Built interactive Shiny applications to visualize probability distributions and compute moments. Implemented parameter estimation using MLE, Method of Moments, and numerical optimization.</p>
+            <ul>
+              <li><strong>Role:</strong> Solo Developer</li>
+              <li><strong>Technologies:</strong> R, Shiny, Monte Carlo Simulation, MLE, Statistical Inference, Data Visualization</li>
+            </ul>
           </article>
+
           <article class="project-item">
-            <h2>Autonomous Agentic AI</h2>
-            <p>A team project to diagnose and correct quantum hardware errors using an autonomous AI pipeline.</p>
-             <a href="pages/projects.html" class="btn">View Details</a>
+            <h2><i class="fas fa-robot"></i> Autonomous Agentic AI for Quantum Error Correction</h2>
+            <p>Engineered an autonomous Agentic AI pipeline to diagnose and correct quantum hardware errors, reducing calibration time from hours to seconds. Trained a supervised learning model on synthetic circuit data, achieving 85% diagnostic accuracy. Developed a Retrieval-Augmented Generation (RAG) system with a local Gemma-3 LLM to generate hardware-aware circuit patches. Implemented a closed-loop control architecture with a "Critic" agent to validate repairs.</p>
+            <ul>
+              <li><strong>Team Size:</strong> 5 members</li>
+              <li><strong>My Role:</strong> Building the RAG & helping with the ML classifier</li>
+              <li><strong>Technologies:</strong> LangChain, Gemma-3, RAG, PyTorch, Agentic AI</li>
+            </ul>
           </article>
-        </div>
-        <div style="text-align: center; margin-top: 40px;">
-           <a href="pages/projects.html" class="btn">View All Projects</a>
         </div>
       </section>
     </main>
 
-    <footer>
-      <h3 class="contact-title">Contact Me!</h3>
-      <div class="contact-info">
+    <footer id="contact">
+        <h2 class="section-title">Contact <span class="highlight">Me</span></h2>
+        <div class="contact-info">
         <div class="contact-item">
-          <i class="fas fa-phone-alt contact-icon"></i>
-          <a href="tel:+40721990601">+40721990601</a>
+          <a href="tel:+40721990601"><i class="fas fa-phone-alt contact-icon"></i> +40 721 990 601</a>
         </div>
         <div class="contact-item">
-          <i class="fas fa-envelope contact-icon"></i>
-          <a href="mailto:mihneave2004@gmail.com">mihneave2004@gmail.com</a>
+          <a href="mailto:mihneave2004@gmail.com"><i class="fas fa-envelope contact-icon"></i> mihneave2004@gmail.com</a>
         </div>
       </div>
       <p>&copy; 2025 Velcea Mihnea-Andrei. All rights reserved.</p>

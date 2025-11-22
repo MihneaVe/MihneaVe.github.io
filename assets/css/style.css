@@ -1,13 +1,14 @@
 /*
 * Website: UserSite
 * Author: Gemini
-* Version: 2.2
+* Version: 2.3
 *
 * TABLE OF CONTENTS
 * -----------------
 * 1.0 GLOBAL STYLES
 *   - Variables
 *   - Reset & Base
+*   - Custom Cursor & Scrollbar
 *
 * 2.0 LAYOUT
 *   - Header
@@ -55,6 +56,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
 html {
@@ -67,6 +69,44 @@ body {
   color: var(--text-light);
   line-height: 1.7;
 }
+
+/* Custom Cursor & Scrollbar */
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--green-primary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.1s ease;
+  z-index: 10000;
+}
+
+.cursor-grow {
+  width: 40px;
+  height: 40px;
+  background-color: var(--green-primary);
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green-secondary);
+}
+
 
 /* 2.0 LAYOUT
 --------------------------------------------- */
@@ -100,6 +140,10 @@ nav ul {
   display: flex;
   list-style: none;
   gap: 35px;
+}
+
+nav a, .btn, .github-btn {
+  cursor: none;
 }
 
 nav a {
@@ -233,11 +277,11 @@ footer .contact-item a:hover {
 }
 
 .hero-content h2 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 8vw, 4rem);
   font-weight: 700;
   margin-bottom: 15px;
   color: #fff;
-  min-height: 50px;
+  line-height: 1.2;
 }
 
 .hero-content p {
@@ -249,20 +293,27 @@ footer .contact-item a:hover {
 
 .bio-container {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 50px;
+  grid-template-columns: 1fr;
+  gap: 30px;
   align-items: center;
+  text-align: center;
 }
 
 .bio-content p {
   margin-bottom: 15px;
   color: var(--text-muted);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .timeline {
   margin-top: 40px;
   position: relative;
   padding-left: 45px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .timeline::before {
@@ -521,18 +572,9 @@ footer .contact-item a:hover {
     padding: var(--spacing-md);
   }
 
-  .hero-content h2 {
-    font-size: 2rem;
-    min-height: 80px; /* Prevents layout shift */
-  }
-
   .bio-container {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-
-  .profile-container {
-    margin: 0 auto 30px;
   }
 
   .timeline {

@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM fully loaded and parsed');
+  // --- Custom Cursor ---
+  const cursor = document.createElement('div');
+  cursor.classList.add('cursor');
+  document.body.appendChild(cursor);
+
+  document.addEventListener('mousemove', e => {
+    cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+  });
+
+  document.addEventListener('click', () => {
+    cursor.classList.add("cursor-grow");
+    setTimeout(() => {
+      cursor.classList.remove("cursor-grow");
+    }, 500);
+  });
 
   // --- Mobile Menu Toggle ---
   const menuToggle = document.querySelector('.menu-toggle');
@@ -7,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', function() {
-      console.log('Menu toggle clicked');
       navMenu.classList.toggle('show');
       const icon = menuToggle.querySelector('i');
       if (navMenu.classList.contains('show')) {
@@ -67,21 +80,21 @@ document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector('header');
   window.addEventListener('scroll', function() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
+    if (scrollTop > lastScrollTop && scrollTop > 100) { // Only hide after scrolling 100px
       // Downscroll
       header.classList.add('hidden');
     } else {
       // Upscroll
       header.classList.remove('hidden');
     }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }, false);
 
 
   // --- Active Nav Link on Scroll ---
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
-    let current = '';
+    let current = 'hero';
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
       if (pageYOffset >= sectionTop - 60) {

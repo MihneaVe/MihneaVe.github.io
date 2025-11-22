@@ -103,3 +103,22 @@ document.addEventListener('DOMContentLoaded', function() {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }, false);
 });
+
+// Typing animation
+document.addEventListener('DOMContentLoaded', function() {
+  const typedTextSpan = document.getElementById('typed-text');
+  const textToType = "Mihnea-Andrei Velcea";
+  let i = 0;
+
+  function typeWriter() {
+    if (i < textToType.length) {
+      typedTextSpan.textContent += textToType.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+
+  if(typedTextSpan) {
+    typeWriter();
+  }
+});

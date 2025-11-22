@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', function() {
+      console.log('Menu toggle clicked');
       navMenu.classList.toggle('show');
       const icon = menuToggle.querySelector('i');
       if (navMenu.classList.contains('show')) {
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     typeWriter();
   }
 
-  // --- Scroll Animations ---
+  // --- Scroll Animations & Header Visibility ---
   const fadeInElements = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -62,6 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 
+  let lastScrollTop = 0;
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // Downscroll
+      header.classList.add('hidden');
+    } else {
+      // Upscroll
+      header.classList.remove('hidden');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+  }, false);
+
+
   // --- Active Nav Link on Scroll ---
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
@@ -75,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) {
+      const href = link.getAttribute('href');
+      if (href && href.includes(current)) {
         link.classList.add('active');
       }
     });

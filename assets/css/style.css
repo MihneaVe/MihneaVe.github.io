@@ -1,7 +1,7 @@
 /*
 * Website: UserSite
 * Author: Gemini
-* Version: 2.1
+* Version: 2.2
 *
 * TABLE OF CONTENTS
 * -----------------
@@ -82,6 +82,11 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
+  transition: transform 0.3s ease-out;
+}
+
+header.hidden {
+  transform: translateY(-100%);
 }
 
 header h1 {
@@ -192,12 +197,17 @@ footer .contact-item a:hover {
   color: var(--green-primary);
   border-color: var(--green-primary);
   transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(50, 214, 159, 0.2);
 }
 
 .hero {
   text-align: center;
   padding: 60px 20px;
   margin-bottom: 60px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile-container {
@@ -227,6 +237,7 @@ footer .contact-item a:hover {
   font-weight: 700;
   margin-bottom: 15px;
   color: #fff;
+  min-height: 50px;
 }
 
 .hero-content p {
@@ -336,6 +347,12 @@ footer .contact-item a:hover {
   border-radius: var(--border-radius);
   padding: 30px;
   border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .skill-category {
@@ -389,8 +406,8 @@ footer .contact-item a:hover {
 }
 
 .project-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
   border-color: var(--green-primary);
 }
 
@@ -425,7 +442,7 @@ footer .contact-item a:hover {
 --------------------------------------------- */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -505,7 +522,8 @@ footer .contact-item a:hover {
   }
 
   .hero-content h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    min-height: 80px; /* Prevents layout shift */
   }
 
   .bio-container {

@@ -45,40 +45,56 @@
     </header>
 
     <main>
-      <div class="hero">
-        <div class="profile-container glow-effect">
+      <section id="hero" class="hero">
+        <div class="profile-container">
           <img src="./assets/img/profile.jpg" alt="Mihnea Velcea" />
         </div>
-
         <div class="hero-content">
           <h2>Hello, I'm <span class="highlight" id="typed-text"></span></h2>
           <p>
-            Welcome to my personal website. I'm a passionate Computer Science student with a strong interest in AI and Software Engineering. Explore my work and learn more about my journey.
+            A passionate Computer Science student with a strong interest in AI and Software Engineering. Welcome to my personal space where I share my projects and journey.
           </p>
-          <p style="margin-top: 15px">
-            <a href="pages/about.html" class="btn">Learn More About Me</a>
-          </p>
+          <a href="pages/about.html" class="btn">Learn More About Me</a>
         </div>
-      </div>
-
-      <section>
-        <h2 class="section-title">About Me</h2>
-        <p>
-          I am a passionate Computer Science student with a strong interest in AI and Software Engineering. My academic journey at the University of Bucharest and involvement with the Mathematics and Computer Science Student Association (ASMI) have provided me with a solid foundation and practical experience in project management and problem-solving.
-        </p>
-        <p style="margin-top: 15px">
-          <a href="pages/about.html" class="btn">Read More</a>
-        </p>
       </section>
 
-      <section>
-        <h2 class="section-title">My Work</h2>
-        <p>
-          My portfolio includes projects in Deepfake image classification, stochastic process simulation, and autonomous agentic AI for quantum error correction. These highlight my expertise in machine learning, statistical modeling, and advanced AI systems.
-        </p>
-        <p style="margin-top: 15px">
-          <a href="pages/projects.html" class="btn">View Projects</a>
-        </p>
+      <section id="about-preview">
+        <h2 class="section-title">About <span class="highlight">Me</span></h2>
+        <div class="bio-container">
+          <div class="bio-content">
+            <p>
+              I am a dedicated student at the University of Bucharest, deeply involved in the tech community through the Mathematics and Computer Science Student Association (ASMI). My focus is on building innovative solutions and tackling complex challenges in AI and software development.
+            </p>
+            <p>
+              This website is a showcase of my work, skills, and experiences. Feel free to explore my projects and get in touch.
+            </p>
+             <a href="pages/about.html" class="btn">Read More</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects-preview">
+        <h2 class="section-title">My <span class="highlight">Work</span></h2>
+        <div class="project-list">
+          <article class="project-item">
+            <h2>Deepfake Image Classification</h2>
+            <p>A solo project focused on detecting AI-generated images with 91% accuracy.</p>
+            <a href="pages/projects.html" class="btn">View Details</a>
+          </article>
+          <article class="project-item">
+            <h2>Stochastic Process Simulation</h2>
+            <p>An R-based simulation framework for statistical modeling and analysis.</p>
+             <a href="pages/projects.html" class="btn">View Details</a>
+          </article>
+          <article class="project-item">
+            <h2>Autonomous Agentic AI</h2>
+            <p>A team project to diagnose and correct quantum hardware errors using an autonomous AI pipeline.</p>
+             <a href="pages/projects.html" class="btn">View Details</a>
+          </article>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+           <a href="pages/projects.html" class="btn">View All Projects</a>
+        </div>
       </section>
     </main>
 
